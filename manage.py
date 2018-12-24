@@ -1,4 +1,4 @@
-#!/usr/bin/env python11
+#!/usr/bin/env python22
 import os
 import sys
 
