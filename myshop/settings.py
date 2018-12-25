@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'goods',
     'trade',
     'user_operation',
+    'xadmin',
+    'crispy_forms',
+    'reversion',
+    'DjangoUeditor',
 
 
 ]

@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('ueditor/',include('DjangoUeditor.urls')),
+    path('xadmin/',xadmin.site.urls),
 ]
