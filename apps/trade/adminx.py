@@ -1,7 +1,7 @@
 __author__='derek'
 
 import xadmin
-from .models import ShoppingCart,OrderInfo,OrderGoods
+from .models import shoppingCar,OrderInfo,OrderGoods
 
 class ShoppingCartAdmin(object):
     list_display=['user','goods','nums']
@@ -18,5 +18,5 @@ class OrderInfoAdmin(object):
 
     inlines=[OrderGoodsInline]
 
-xadmin.site.register(ShoppingCart,ShoppingCartAdmin)
+xadmin.site.register(shoppingCar,ShoppingCartAdmin)
 xadmin.site.register(OrderInfo,OrderInfoAdmin)
