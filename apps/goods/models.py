@@ -18,8 +18,8 @@ class GoodsCategory(models.Model):
     code=models.CharField(default='',max_length=30,verbose_name='类别code',help_text='类别code')
     desc=models.CharField(default='',max_length=200,verbose_name='类别描述',help_text='类别描述')
     category_type=models.IntegerField(choices=CATEGORY_TYPE,default=1,verbose_name='类目级别',help_text='类目级别')
-    parent_categroy=models.ForeignKey('self',null=True,blank=True,verbose_name='父类级别',
-                                      related_name='sub_cat',on_delete=models.CASCADE)
+    parent_category=models.ForeignKey( 'self', null=True, blank=True, verbose_name='父类级别',
+                                       related_name='sub_cat', on_delete=models.CASCADE )
     is_tab=models.BooleanField(default=False,verbose_name='是否导航',help_text='是否导航')
     add_time=models.DateTimeField(default=datetime.now,verbose_name='添加时间')
 
@@ -52,6 +52,7 @@ class Goods(models.Model):
     name=models.CharField(max_length=300,verbose_name='商品名')
     click_num=models.IntegerField(default=0,verbose_name='点击数')
     sold_num=models.IntegerField(default=0,verbose_name='商品销量')
+    fav_num=models.IntegerField('收藏数',default=0,)
     goods_num=models.IntegerField(default=0,verbose_name='库存数')
     market_price=models.FloatField(default=0,verbose_name='市场价格')
     shop_price=models.FloatField(default=0,verbose_name='本店价格')
@@ -85,7 +86,7 @@ class GoodsImage(models.Model):
 
 class Banner(models.Model):
     goods=models.ForeignKey(Goods,verbose_name='商品名',on_delete=models.CASCADE)
-    image=models.ImageField(upload_to='banner',verbose_name='轮播图片')
+    imagte=models.ImageField( upload_to='banner', verbose_name='轮播图片' )
     index=models.IntegerField(default=0,verbose_name='轮播顺序')
     add_time=models.DateTimeField(default=datetime.now,verbose_name='添加时间')
 
