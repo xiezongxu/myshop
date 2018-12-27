@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'reversion',
     'DjangoUeditor',
+    'rest_framework',
+    'django_filters',
 
 
 ]
