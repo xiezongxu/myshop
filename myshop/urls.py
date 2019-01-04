@@ -17,15 +17,23 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
+from rest_framework.authtoken import views
+from rest_framework_jwt.views import obtain_jwt_token
 
 import xadmin
 from goods.views import GoodsListViewSet
+
+from goods.views import CategoryViewSet
+
+
 from myshop.settings import MEDIA_ROOT
 from rest_framework.routers import DefaultRouter
 
 router=DefaultRouter()
 
 router.register(r'goods',GoodsListViewSet)
+router.register(r'categorys',CategoryViewSet,base_name='categorys')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,5 +47,7 @@ urlpatterns = [
     path('docs',include_docs_urls(title='cms1')),
     path('api-auth/',include('rest_framework.urls')),
     re_path('', include(router.urls)),
+    path('api-token-auth/', views.obtain_auth_token),
+    path('login/', obtain_jwt_token ),
 
 ]
