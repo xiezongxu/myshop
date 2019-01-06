@@ -174,4 +174,4 @@ JWT_AUTH = {
 
 REGEX_MOBILE = "^1[358]\d{9}$|^147\d{8}$|^176\d{8}$"
 #云片网APIKEY
-APIKEY = "xxxxx327d4be01608xxxxxxxxxx"
+APIKEY = "657bed9156f9f89e0ee62e20f752553f"

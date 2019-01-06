@@ -24,7 +24,7 @@ class GoodsPagination(PageNumberPagination):
 
 
 
-class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
+class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet,mixins.RetrieveModelMixin):
     '商品列表页'
 
     #这里必须要定义一个默认的排序,否则会报错

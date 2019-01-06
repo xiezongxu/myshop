@@ -10,7 +10,7 @@ class UserProfile(AbstractUser):
     name=models.CharField(max_length=30,null=True,verbose_name='姓名')
     birthday=models.DateField(null=True,blank=True,verbose_name='出生日期')
     gender=models.CharField(max_length=6,choices=(('male','男'),('female','女')),default='male')
-    mobile=models.CharField(max_length=11,verbose_name='电话')
+    mobile=models.CharField(max_length=11,null=True,blank=True,verbose_name='电话1')
     email = models.CharField(max_length=100,null=True,blank=True,verbose_name='邮件')
 
     class Meta:

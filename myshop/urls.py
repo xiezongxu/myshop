@@ -25,7 +25,7 @@ from goods.views import GoodsListViewSet
 
 from goods.views import CategoryViewSet
 
-
+from users.views import SmsCodeViewset,UserViewset
 from myshop.settings import MEDIA_ROOT
 from rest_framework.routers import DefaultRouter
 
@@ -33,6 +33,8 @@ router=DefaultRouter()
 
 router.register(r'goods',GoodsListViewSet)
 router.register(r'categorys',CategoryViewSet,base_name='categorys')
+router.register(r'code',SmsCodeViewset,base_name='code')
+router.register(r'users',UserViewset,base_name='users')
 
 
 urlpatterns = [
