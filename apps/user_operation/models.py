@@ -48,20 +48,20 @@ class UserLeavingMessage(models.Model):
     '''用户留言'''
 
     MESSAGE_CHOICES = (
-        (1,'留言'),
-        (2,'投诉'),
-        (3,'投诉'),
-        (4,'售后'),
-        (5,'求购'),
+        (1,"留言"),
+        (2,"投诉"),
+        (3,"投诉"),
+        (4,"售后"),
+        (5,"求购"),
     )
 
-    user=models.ForeignKey(User,on_delete=models.CASCADE,verbose_name='用户')
-    message_type = models.IntegerField(default=1,choices=MESSAGE_CHOICES,verbose_name='留言类型',
-                                       help_text='留言类型:1(留言),2(投诉),3(咨询),4(售后),5(求购)')
-    subject = models.CharField('主题',max_length=100,default='')
-    message = models.FileField('留言内容',default='',help_text='留言内容')
-    file=models.FileField(upload_to='message/images/',verbose_name='上次的文件',help_text='上传的文件')
-    add_time = models.DateTimeField('添加时间',default=datetime.now)
+    user = models.ForeignKey(User, verbose_name="用户",on_delete=models.CASCADE)
+    message_type = models.IntegerField(default=1, choices=MESSAGE_CHOICES, verbose_name="留言类型",
+                                      help_text=u"留言类型: 1(留言),2(投诉),3(询问),4(售后),5(求购)")
+    subject = models.CharField(verbose_name='主题',max_length=100,default='')
+    message = models.TextField(verbose_name='留言内容',default='',help_text='留言内容')
+    file=models.FileField(upload_to="message/images/",verbose_name='上次的文件',help_text='上传的文件')
+    add_time = models.DateTimeField(verbose_name='添加时间',default=datetime.now)
 
     class Meta:
         verbose_name='用户留言'

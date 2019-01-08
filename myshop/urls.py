@@ -26,6 +26,16 @@ from goods.views import GoodsListViewSet
 from goods.views import CategoryViewSet
 
 from users.views import SmsCodeViewset,UserViewset
+
+from user_operation.views import UserFavViewset
+
+from user_operation.views import LeavingMessageViewset
+
+from user_operation.views import AddressViewset
+
+from trade.views import ShoppingCartViewset
+
+from trade.views import OrderViewset
 from myshop.settings import MEDIA_ROOT
 from rest_framework.routers import DefaultRouter
 
@@ -35,6 +45,11 @@ router.register(r'goods',GoodsListViewSet)
 router.register(r'categorys',CategoryViewSet,base_name='categorys')
 router.register(r'code',SmsCodeViewset,base_name='code')
 router.register(r'users',UserViewset,base_name='users')
+router.register(r'userfavs',UserFavViewset,base_name="userfavs")
+router.register(r'messages', LeavingMessageViewset, base_name='messages')
+router.register(r'address',AddressViewset,base_name='address')
+router.register(r'shopcarts', ShoppingCartViewset, base_name="shopcarts")
+router.register(r'orders', OrderViewset, base_name="orders")
 
 
 urlpatterns = [

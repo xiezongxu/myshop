@@ -23,7 +23,7 @@ class UserRegSerializer(serializers.ModelSerializer):
                                    "max_length":"验证码格式错误1",
                                    "min_length":"验证码格式错误2",
                                   },
-                                help_text="验证码")
+                                help_text="验证码2")
     #验证code
     def validate_code(self,code):
     # 用户注册，已post方式提交注册信息，post的数据都保存在initial_data里面
@@ -52,11 +52,12 @@ class UserRegSerializer(serializers.ModelSerializer):
         del attrs["code"]
         return  attrs
 
-    username = serializers.CharField(label="用户名", help_text="用户名", required=True, allow_blank=False,
+    username = serializers.CharField(label="用户名", help_text="用户名3", required=True, allow_blank=False,
                                      validators=[UniqueValidator(queryset=User.objects.all(), message="用户已经存在")])
     password= serializers.CharField(
         style={'input_type':'password'},write_only=True
     )
+    print(password,'password')
 
     def create(self, validated_data1):
         user=super(UserRegSerializer,self).create(validated_data=validated_data1)
@@ -70,3 +71,11 @@ class UserRegSerializer(serializers.ModelSerializer):
         fields=('username','code','mobile','password')
 
 
+
+class UserDetailSerializer(serializers.ModelSerializer):
+    """
+    用户详情
+    """
+    class Meta:
+        model = User
+        fields = ("name", "gender", "birthday", "email","mobile")
