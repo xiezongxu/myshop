@@ -31,7 +31,7 @@ SECRET_KEY = '2m0^k5ob&2nl6edqgb5bkuiee6s(hsb%bej^^-bf6+78&e$0c^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL='users.UserProfile'
 
 
@@ -108,7 +108,7 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME':'myshop4',
         'USER':'root',
-        'PASSWORD':'turans',
+        'PASSWORD':'123456',
         'HOST':"127.0.0.1",
         'PORT':'3306',
         'OPTIONS':{'init_command': 'SET default_storage_engine=INNODB'},
