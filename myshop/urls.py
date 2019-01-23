@@ -36,6 +36,8 @@ from user_operation.views import AddressViewset
 from trade.views import ShoppingCartViewset
 
 from trade.views import OrderViewset
+
+from trade.views import AlipayView
 from myshop.settings import MEDIA_ROOT
 from rest_framework.routers import DefaultRouter
 

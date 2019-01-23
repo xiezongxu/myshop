@@ -14,6 +14,7 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 
 from apps.utils.permissions import IsOwnerOrReadOnly
+from myshop.settings import private_key_path, ali_pub_key_path
 from .serializers import ShopCartSerializer,OrderDetailSerializer, ShopCartDetailSerializer, OrderSerializer
 from .models import shoppingCar, OrderInfo, OrderGoods
 
@@ -168,11 +169,11 @@ class AlipayView(APIView):
         #生成一个Alipay对象
         alipay = AliPay(
             appid="2016091500517456",
-            app_notify_url="http://47.93.198.159:8000/alipay/return/",
+            app_notify_url="http://212.64.64.114:55555/alipay/return/",
             app_private_key_path=private_key_path,
             alipay_public_key_path=ali_pub_key_path,  # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
             debug=True,  # 默认False,
-            return_url="http://47.93.198.159:8000/alipay/return/"
+            return_url="http://212.64.64.114:55555/alipay/return/"
         )
 
         #进行验证
