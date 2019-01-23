@@ -66,5 +66,6 @@ urlpatterns = [
     re_path('', include(router.urls)),
     path('api-token-auth/', views.obtain_auth_token),
     path('login/', obtain_jwt_token ),
+    path('alipay/return/', AlipayView.as_view()),
 
 ]
