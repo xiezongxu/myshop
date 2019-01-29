@@ -154,14 +154,14 @@ if __name__ == "__main__":
 #         # 沙箱里面的appid值
 #         appid="2016092500591374",
 #         #notify_url是异步的url
-#         app_notify_url="http://47.93.198.159:8000/alipay/return/",
+#         app_notify_url="http://212.64.64.114:55555/alipay/return/",
 #         # 我们自己商户的密钥
 #         app_private_key_path="../trade/keys/private_2048.txt",
 #         # 支付宝的公钥
 #         alipay_public_key_path="../trade/keys/alipay_key_2048.txt",  # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
 #         # debug为true时使用沙箱的url。如果不是用正式环境的url
 #         debug=True,  # 默认False,
-#         return_url="http://47.93.198.159:8000/alipay/return/"
+#         return_url="http://212.64.64.114:55555/alipay/return/"
 #     )
 #
 #     for key, value in query.items():
@@ -177,7 +177,7 @@ if __name__ == "__main__":
 #         # 订单金额
 #         total_amount=100,
 #         #成功付款后跳转到的页面，return_url同步的url
-#         return_url="http://47.93.198.159:8000/alipay/return/"
+#         return_url="http://212.64.64.114:55555/alipay/return/"
 #     )
 #     # 将生成的请求字符串拿到我们的url中进行拼接
 #     re_url = "https://openapi.alipaydev.com/gateway.do?{data}".format(data=url)
