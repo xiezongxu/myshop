@@ -67,6 +67,9 @@ class OrderGoodsSerialzier(serializers.ModelSerializer):
 
 
 class OrderDetailSerializer(serializers.ModelSerializer):
+
+    #生成的是购物车内的商品 的支付链接！！！
+
     goods = OrderGoodsSerialzier(many=True)
     # 支付订单的url
     alipay_url = serializers.SerializerMethodField(read_only=True)
@@ -95,6 +98,7 @@ class OrderDetailSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    #根据购新增商品，生成新的订单号及相关信息
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -104,8 +108,9 @@ class OrderSerializer(serializers.ModelSerializer):
     order_sn = serializers.CharField(read_only=True)
     pay_time = serializers.CharField(read_only=True)
     nonce_str = serializers.CharField(read_only=True)
+    pay_type = serializers.CharField(read_only=True)
     #支付订单的url
-    pay_type = serializers.SerializerMethodField(read_only=True)
+    alipay_url  = serializers.SerializerMethodField(read_only=True)
 
     def get_alipay_url(self, obj):
         alipay = AliPay(

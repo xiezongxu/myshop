@@ -127,6 +127,8 @@ class AliPay(object):
         return self._verify(message, signature)
 
 
+
+
 if __name__ == "__main__":
     return_url = ""
     o = urlparse(return_url)
@@ -135,35 +137,47 @@ if __name__ == "__main__":
     ali_sign = query.pop("sign")[0]
 
 
+
+
+#
+#
+# if __name__ == "__main__":
+#     return_url = 'http://127.0.0.1:8000/?total_amount=100.00&timestamp=2017-08-15+23%3A53%3A34&sign=e9E9UE0AxR84NK8TP1CicX6aZL8VQj68ylugWGHnM79zA7BKTIuxxkf%2FvhdDYz4XOLzNf9pTJxTDt8tTAAx%2FfUAJln4WAeZbacf1Gp4IzodcqU%2FsIc4z93xlfIZ7OLBoWW0kpKQ8AdOxrWBMXZck%2F1cffy4Ya2dWOYM6Pcdpd94CLNRPlH6kFsMCJCbhqvyJTflxdpVQ9kpH%2B%2Fhpqrqvm678vLwM%2B29LgqsLq0lojFWLe5ZGS1iFBdKiQI6wZiisBff%2BdAKT9Wcao3XeBUGigzUmVyEoVIcWJBH0Q8KTwz6IRC0S74FtfDWTafplUHlL%2Fnf6j%2FQd1y6Wcr2A5Kl6BQ%3D%3D&trade_no=2017081521001004340200204115&sign_type=RSA2&auth_app_id=2016080600180695&charset=utf-8&seller_id=2088102170208070&method=alipay.trade.page.pay.return&app_id=2016080600180695&out_trade_no=20170202185&version=1.0'
+#     o = urlparse(return_url)
+#     query = parse_qs(o.query)
+#     processed_query = {}
+#     ali_sign = query.pop("sign")[0]
+
+#
 # # 测试用例
 #     alipay = AliPay(
 #         # 沙箱里面的appid值
 #         appid="2016092500591374",
 #         #notify_url是异步的url
-#         app_notify_url="http://127.0.0.1:8000/",
+#         app_notify_url="http://47.93.198.159:8000/alipay/return/",
 #         # 我们自己商户的密钥
 #         app_private_key_path="../trade/keys/private_2048.txt",
 #         # 支付宝的公钥
 #         alipay_public_key_path="../trade/keys/alipay_key_2048.txt",  # 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,
 #         # debug为true时使用沙箱的url。如果不是用正式环境的url
 #         debug=True,  # 默认False,
-#         return_url="http://127.0.0.1:8000/"
+#         return_url="http://47.93.198.159:8000/alipay/return/"
 #     )
 #
 #     for key, value in query.items():
 #         processed_query[key] = value[0]
-#     print (alipay.verify(processed_query, ali_sign))
+#     # print (alipay.verify(processed_query, ali_sign))
 #
 #     # 直接支付:生成请求的字符串。
 #     url = alipay.direct_pay(
 #         # 订单标题
-#         subject="测试订单derek22",
+#         subject="测试订单derek",
 #         # 我们商户自行生成的订单号
-#         out_trade_no="20180417derek323",
+#         out_trade_no="20180417derek2",
 #         # 订单金额
-#         total_amount=88,
+#         total_amount=100,
 #         #成功付款后跳转到的页面，return_url同步的url
-#         return_url="http://127.0.0.1:8000/"
+#         return_url="http://47.93.198.159:8000/alipay/return/"
 #     )
 #     # 将生成的请求字符串拿到我们的url中进行拼接
 #     re_url = "https://openapi.alipaydev.com/gateway.do?{data}".format(data=url)

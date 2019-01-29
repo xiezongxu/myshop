@@ -57,7 +57,7 @@ class UserRegSerializer(serializers.ModelSerializer):
     password= serializers.CharField(
         style={'input_type':'password'},write_only=True
     )
-    print(password,'password')
+    print('password（DRF输入属性）:',password)
 
     def create(self, validated_data1):
         user=super(UserRegSerializer,self).create(validated_data=validated_data1)
