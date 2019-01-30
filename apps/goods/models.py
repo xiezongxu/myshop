@@ -86,7 +86,7 @@ class GoodsImage(models.Model):
 
 class Banner(models.Model):
     goods=models.ForeignKey(Goods,verbose_name='商品名',on_delete=models.CASCADE)
-    imagte=models.ImageField( upload_to='banner', verbose_name='轮播图片' )
+    imagte=models.ImageField(upload_to='banner', verbose_name='轮播图片' )
     index=models.IntegerField(default=0,verbose_name='轮播顺序')
     add_time=models.DateTimeField(default=datetime.now,verbose_name='添加时间')
 

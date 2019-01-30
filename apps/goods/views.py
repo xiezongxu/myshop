@@ -4,10 +4,10 @@ from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework.views import APIView
-from .serializers import GoodsSerializer, CategorySerializer
+from .serializers import GoodsSerializer, CategorySerializer, BannerSerializer, IndexCategorySerializer
 
 from .filters import GoodsFilter
-from .models import Goods, GoodsCategory
+from .models import Goods, GoodsCategory, Banner
 from rest_framework.response import Response
 
 from rest_framework.pagination import PageNumberPagination
@@ -61,10 +61,20 @@ class CategoryViewSet(mixins.ListModelMixin,mixins.RetrieveModelMixin,viewsets.G
 
 
 
+class BannerViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
+    '''首页轮播图'''
+
+    queryset = Banner.objects.all().order_by("index")
+    serializer_class = BannerSerializer
 
 
-
-
+class IndexCategoryViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
+    """
+    首页商品分类数据
+    """
+    # 获取is_tab=True（导航栏）里面的分类下的商品数据
+    queryset = GoodsCategory.objects.filter(is_tab=True, name__in=["生鲜食品", "酒水饮料"])
+    serializer_class = IndexCategorySerializer
 
 
 

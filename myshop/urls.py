@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.views.generic import TemplateView
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
 from rest_framework.authtoken import views
@@ -38,6 +39,10 @@ from trade.views import ShoppingCartViewset
 from trade.views import OrderViewset
 
 from trade.views import AlipayView
+
+from goods.views import BannerViewset
+
+from goods.views import IndexCategoryViewset
 from myshop.settings import MEDIA_ROOT
 from rest_framework.routers import DefaultRouter
 
@@ -52,7 +57,8 @@ router.register(r'messages', LeavingMessageViewset, base_name='messages')
 router.register(r'address',AddressViewset,base_name='address')
 router.register(r'shopcarts', ShoppingCartViewset, base_name="shopcarts")
 router.register(r'orders', OrderViewset, base_name="orders")
-
+router.register(r'banners', BannerViewset, base_name="banners")
+router.register(r'indexgoods', IndexCategoryViewset, base_name="indexgoods")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -69,5 +75,6 @@ urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token),
     path('login/', obtain_jwt_token ),
     path('alipay/return/', AlipayView.as_view()),
+    path('index/', TemplateView.as_view(template_name='index.html'),name='index')
 
 ]
